@@ -301,51 +301,90 @@
       transition: visibility 0s, opacity 0.3s;
     }
     /* Popup container */
-    .popup {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .popup h2 {
-      margin-top: 0;
-      color: #333;
-    }
-    .popup p {
-      color: #555;
-    }
-    .popup button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .popup button:hover {
-      background-color: #0056b3;
-    }
-    /* Show popup */
-    .popup-overlay.show {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
+   <style>
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+  }
+
+  .popup {
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .popup h2 {
+    margin-top: 0;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+  }
+
+  .popup p {
+    color: #b3b3b3;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+  }
+
+  .popup button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    transition: background 0.3s ease;
+  }
+
+  .popup button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+  }
+
+  /* Show popup */
+  .popup-overlay.show {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
 </head>
 <body>
 
 <!-- Popup overlay -->
 <div class="popup-overlay" id="popupOverlay">
   <div class="popup">
-    <h2>Welcome!</h2>
-    <p>Starfish Assistant BOT🤖 POWERED BY D.Patrick</p>
+    <h2>Welcome to Lycee de Nyanza!</h2>
+    <p>Your journey of excellence begins here with the Starfish Assistant BOT 🤖--- Made by patrick©</p>
     <button id="closePopupButton">Close</button>
   </div>
 </div>
+
+<script>
+  // Example JavaScript to close the popup
+  document.getElementById('closePopupButton').addEventListener('click', function () {
+    document.getElementById('popupOverlay').classList.remove('show');
+  });
+
+  // Show the popup (for demonstration purposes, you can trigger this dynamically)
+  window.onload = function () {
+    document.getElementById('popupOverlay').classList.add('show');
+  };
+</script>
 
 
 
